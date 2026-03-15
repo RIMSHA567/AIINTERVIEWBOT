@@ -1,5 +1,3 @@
-// src/pages/Auth.jsx
-
 import React from "react";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
@@ -43,6 +41,7 @@ export default function Auth() {
       dispatch(setUserData(result.data));
     } catch (error) {
       console.log(error);
+      dispatch(setUserData(null));
     }
   };
 
