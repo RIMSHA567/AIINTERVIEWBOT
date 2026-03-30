@@ -54,10 +54,10 @@ const Navbar = () => {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
           <button
-            onClick={() => navigate("/practice")}
+            onClick={() => navigate("/")}
             className="hover:text-green-400 transition"
           >
-            Practice
+            Home
           </button>
           <button
             onClick={() => navigate("/history")}
@@ -66,10 +66,10 @@ const Navbar = () => {
             History
           </button>
           <button
-            onClick={() => navigate("/analytics")}
+            onClick={() => navigate("/interview")}
             className="hover:text-green-400 transition"
           >
-            Analytics
+            Interview
           </button>
         </div>
 

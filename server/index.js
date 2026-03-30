@@ -19,6 +19,8 @@ import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
 // User related routes import kar rahe hain (current user get karna etc.)
 
+import interviewRouter from "./routes/interview.route.js";
+
 dotenv.config();
 // .env file load kar rahe hain, jahan secret keys aur URLs stored hoti hain
 
@@ -62,6 +64,8 @@ app.use("/api/auth", authRouter);
 // "/api/auth" ke requests ke liye authRouter use hoga (Google login)
 app.use("/api/user", userRouter);
 // "/api/user" ke requests ke liye userRouter use hoga (current user etc.)
+console.log("serverpy a gya hooon");
+app.use("/api/interview", interviewRouter);
 
 // server port
 const PORT = process.env.PORT || 6000;

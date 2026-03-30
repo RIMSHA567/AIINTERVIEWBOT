@@ -40,7 +40,7 @@ const HeroSection = () => {
           className="flex flex-col md:flex-row items-center justify-center gap-4"
         >
           <button
-            onClick={() => navigate("/mock-interview")}
+            onClick={() => navigate("/interview")}
             className="bg-[#10B981] hover:bg-[#0f9c6f] transition text-white font-medium px-6 py-3 rounded-lg text-sm md:text-base"
           >
             Start Mock Interview
