@@ -4,6 +4,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { getCurrentUser } from "./services/api.js";
 import Home from "./pages/Home.jsx";
 import Auth from "./pages/Auth.jsx";
+import InterviewPage from "./pages/InterviewPage.jsx";
+
+import InterviewHistory from "./pages/InterviewHistory.jsx";
+
+import InterviewReport from "./pages/InterviewReport.jsx";
+
+import Pricing from "./pages/Pricing.jsx";
 
 export const serverUrl = "http://localhost:5000";
 
@@ -44,6 +51,30 @@ function App() {
       <Route
         path="/auth"
         element={userData ? <Navigate to="/" replace /> : <Auth />}
+      />
+      <Route
+        path="/interview"
+        // agr login hy to interviewpage dikhao warna auth
+        element={userData ? <InterviewPage /> : <Navigate to="/auth" replace />}
+      />
+      <Route
+        path="/history"
+        // agr login hy to interviewpage dikhao warna auth
+        element={
+          userData ? <InterviewHistory /> : <Navigate to="/auth" replace />
+        }
+      />
+      <Route
+        path="/pricing"
+        // agr login hy to interviewpage dikhao warna auth
+        element={userData ? <Pricing /> : <Navigate to="/auth" replace />}
+      />
+      <Route
+        path="/report/:id"
+        // agr login hy to interviewpage dikhao warna auth
+        element={
+          userData ? <InterviewReport /> : <Navigate to="/auth" replace />
+        }
       />
     </Routes>
   );
