@@ -12,7 +12,7 @@ jobs:
       - name: Node.js install karo
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Server dependencies install karo
         run: cd server && npm install
