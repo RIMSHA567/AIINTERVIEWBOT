@@ -12,6 +12,10 @@ import InterviewReport from "./pages/InterviewReport.jsx";
 
 import Pricing from "./pages/Pricing.jsx";
 
+import PaymentSuccess from "./pages/PaymentSuccess.jsx";
+
+import PaymentFailed from "./pages/PaymentFailed.jsx";
+
 export const serverUrl = "http://localhost:5000";
 
 function App() {
@@ -75,6 +79,16 @@ function App() {
         element={
           userData ? <InterviewReport /> : <Navigate to="/auth" replace />
         }
+      />
+      <Route
+        path="/payment-success"
+        element={
+          userData ? <PaymentSuccess /> : <Navigate to="/auth" replace />
+        }
+      />
+      <Route
+        path="/payment-failed"
+        element={userData ? <PaymentFailed /> : <Navigate to="/auth" replace />}
       />
     </Routes>
   );

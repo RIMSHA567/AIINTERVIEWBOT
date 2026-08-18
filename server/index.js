@@ -21,14 +21,24 @@ import userRouter from "./routes/user.route.js";
 
 import interviewRouter from "./routes/interview.route.js";
 
+import { verifyPayment } from "./controllers/payment.controller.js";
+
+import paymentRouter from "./routes/payment.route.js";
+
 dotenv.config();
 // .env file load kar rahe hain, jahan secret keys aur URLs stored hoti hain
 
 const app = express();
 // Express app create kar rahe hain, jo server ko control karega
 
+app.post(
+  "/api/credits/verify",
+  express.raw({ type: "application/json" }),
+  verifyPayment,
+);
 // use hr anay wali request pr implement hota hy
 // CORS configuration (frontend and backend ko connnect kiya)
+
 app.use(
   cors({
     origin: "http://localhost:5173", // yahan sy anay wali request sunnni hy
@@ -66,6 +76,8 @@ app.use("/api/user", userRouter);
 // "/api/user" ke requests ke liye userRouter use hoga (current user etc.)
 console.log("serverpy a gya hooon");
 app.use("/api/interview", interviewRouter);
+
+app.use("/api/credits/", paymentRouter);
 
 // server port
 const PORT = process.env.PORT || 6000;

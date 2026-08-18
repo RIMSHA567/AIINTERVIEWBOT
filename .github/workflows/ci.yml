@@ -1,0 +1,24 @@
+name: CI Check
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code le aao
+        uses: actions/checkout@v3
+
+      - name: Node.js install karo
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Server dependencies install karo
+        run: cd server && npm install
+
+      - name: Client dependencies install karo
+        run: cd client && npm install
+
+      - name: Client build check karo
+        run: cd client && npm run build
